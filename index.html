@@ -1,55 +1,44 @@
-<!-- <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Sitio Web</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
-            background-color: #f0f8ff;
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 20px;
-        }
-        h1 {
-            font-size: 2em;
-            color: #333;
-        }
-        p {
-            font-size: 1.5em;
-            color: #666;
-        }
-    </style>
-</head>
-<body>
-    <img src="meli.jpeg" alt="Imagen Especial">
-    <h1>Te amo desde el primer día que te vi</h1>
-    <p>SOS y serás siempre mi princesa, te amo por siempre cosita hermosa ❤️</p>
-</body>
-</html> -->
-
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Corazón Latiendo</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Heart animation</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <div class="heart-container">
-        <div class="heart"></div>
-        <div class="message" id="message"></div>
+    <div class="container">
+        <div class="heart-container">
+            <div class="heart"></div>
+            <div class="message">
+                <p>Melissa 💖</p>
+                <p>Desde que llegaste a mi vida, mis días se han hecho más bonitos que antes. Ya no espero más que compartir todos mis días contigo hasta el último aliento junto a ti. 🌹🎶</p>
+                <p>Celebrando que hoy cumplimos <span id="days-count"></span> días de novios 💑</p>
+            </div>
+        </div>
+        <div class="video-container">
+            <video autoplay controls loop>
+                <source src="Video para Celular Amor San Valentin Novios Collage Marrón.mp4" type="video/mp4">
+                Tu navegador no soporta la etiqueta de video.
+            </video>
+        </div>
     </div>
-    <script src="script.js"></script>
+
+    <script>
+        // Reproducir video automáticamente al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.querySelector('video');
+            video.play();
+        });
+
+        // Calcular los días de novios
+        const startDate = new Date('2022-03-21');
+        const currentDate = new Date();
+        const timeDiff = Math.abs(currentDate - startDate);
+        const diffDays = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+        document.getElementById('days-count').innerText = diffDays;
+    </script>
 </body>
 </html>
