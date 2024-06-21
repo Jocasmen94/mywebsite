@@ -1,56 +1,111 @@
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     margin: 0;
-    background-color: #f5f5f5;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('acuarela-corazones-patrones-fisuras_1108-561.avif') no-repeat center center fixed; /* Imagen de fondo con corazones */
+    background-size: cover;
+    color: white;
     font-family: Arial, sans-serif;
 }
 
-.heart-container {
+.container {
     text-align: center;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8); /* Fondo semitransparente blanco */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Sombra para resaltar el contenedor */
+}
+
+.heart-container {
+    display: flex;
+    align-items: flex-start; /* Alinear elementos al inicio */
+    justify-content: flex-start; /* Alinear elementos a la izquierda */
+    margin-bottom: 20px;
+    margin-top: 20px; /* Ajuste para mover el corazón hacia abajo */
 }
 
 .heart {
-    width: 100px;
-    height: 100px;
+    width: 50px; /* Tamaño del corazón reducido */
+    height: 50px; /* Tamaño del corazón reducido */
+    background: red;
     position: relative;
-    transform: rotate(45deg);
-    background-color: red;
-    animation: heartbeat 1s infinite;
+    transform: rotate(-45deg);
+    animation: heart 0.6s linear infinite;
+    margin-right: 20px; /* Espacio a la derecha del corazón */
 }
 
-.heart::before, .heart::after {
+@keyframes heart {
+    0% {
+        transform: rotate(-45deg) scale(1);
+    }
+    25% {
+        transform: rotate(-45deg) scale(1.1);
+    }
+    50% {
+        transform: rotate(-45deg) scale(1);
+    }
+    75% {
+        transform: rotate(-45deg) scale(0.9);
+    }
+    100% {
+        transform: rotate(-45deg) scale(1);
+    }
+}
+
+.heart::before,
+.heart::after {
     content: "";
-    width: 100px;
-    height: 100px;
     position: absolute;
+    width: 50px; /* Tamaño del corazón reducido */
+    height: 50px; /* Tamaño del corazón reducido */
+    background: red;
     border-radius: 50%;
-    background-color: red;
+    box-shadow: -5px 5px 60px red;
 }
 
 .heart::before {
-    top: -50px;
+    top: -25px;
     left: 0;
 }
 
 .heart::after {
+    left: 25px;
     top: 0;
-    left: -50px;
 }
 
 .message {
-    margin-top: 20px;
-    font-size: 20px;
-    color: #333;
+    text-align: left;
+    max-width: 500px; /* Máximo ancho del mensaje */
+    color: black; /* Texto en negro para mayor contraste */
+    margin: 20px auto; /* Espacio alrededor del mensaje */
+    padding: 10px; /* Relleno dentro del contenedor del mensaje */
+    background: rgba(255, 255, 255, 0.9); /* Fondo blanco semitransparente */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra suave */
 }
 
-@keyframes heartbeat {
-    0%, 100% {
-        transform: scale(1) rotate(45deg);
-    }
-    50% {
-        transform: scale(1.1) rotate(45deg);
-    }
+.message p {
+    margin: 10px 0; /* Espacio entre párrafos */
+    font-size: 1.2em;
 }
+
+.video-container {
+    max-width: 100%;
+    overflow: hidden;
+    margin-top: 19.5px; /* Ajuste para mover el video medio centímetro arriba */
+    margin-bottom: 5px; /* Espacio arriba del video */
+}
+
+video {
+    width: 200%; /* Video ocupará el 100% del contenedor */
+    max-width: 274px; /* Máximo ancho del video reducido */
+    height: auto; /* Altura automática para mantener la proporción */
+    display: block;
+    margin: 0 auto; /* Centrar horizontalmente */
+}
+
